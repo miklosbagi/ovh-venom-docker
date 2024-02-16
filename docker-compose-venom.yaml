@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  venom-0:
+    platform: linux/amd64
+    image: miklosbagi/ovh-venom:latest
+    env_file:
+      - .venom-env
+    volumes:
+      - ./tests/venom-0:/workdir/tests
+      - ./results/venom-0:/workdir/results
+    depends_on:
+      postgres:
+        condition: service_healthy
