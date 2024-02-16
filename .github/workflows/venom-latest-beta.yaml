@@ -1,0 +1,25 @@
+name: Venom CI Tests
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  schedule:
+    - cron:  '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  latest-beta:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build env and run tests
+      run: make VENOM_VER=latest-beta env-up
+
+  latest:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build env and run tests
+      run: make VENOM_VER=latest env-up
