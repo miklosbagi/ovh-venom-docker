@@ -2,7 +2,7 @@ version: "3.9"
 services:
   venom-0:
     platform: linux/amd64
-    image: miklosbagi/ovh-venom:latest
+    image: miklosbagi/ovh-venom:${VENOM_VER}
     env_file:
       - .venom-env
     volumes:
@@ -15,7 +15,7 @@ services:
   # can run in parallel with venom-0
   venom-1:
     platform: linux/amd64
-    image: miklosbagi/ovh-venom:latest
+    image: miklosbagi/ovh-venom:${VENOM_VER}
     env_file:
       - .venom-env
     volumes:
@@ -29,7 +29,7 @@ services:
   # can run in parallel with venom-0
   venom-2:
     platform: linux/amd64
-    image: miklosbagi/ovh-venom:latest
+    image: miklosbagi/ovh-venom:${VENOM_VER}
     env_file:
       - .venom-env
     volumes:
