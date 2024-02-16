@@ -25,6 +25,8 @@ env-up:
 	exit 1; \
 	}
 
+	$(MAKE) env-down
+
 env-down:
 	@$(COMPOSE) down --volumes --remove-orphans
 
