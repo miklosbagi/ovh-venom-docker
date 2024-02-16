@@ -19,8 +19,11 @@ We use posgres as the example service for this test. For no particular reason, t
   - Tests can run in parallel by having multiple tests referencing a single service as `depends on`
   - Tests can run in proper order, again, by proper use of `depends on`
 
+Failing tests [will be verbose](https://github.com/miklosbagi/ovh-venom-docker/actions/runs/7935684858/job/21669360339), otherwise you may see only containers starting and stopping.
+
 ## Extending
 - Any venom variable can be expressed in `.venom.env`, including custom executors you may have, for as long as you mount them in a volume.
+
 
 # Keep in mind
 - All variables are to be passed to the venom container - can be a brain breaker if you haven't got used to this :)
