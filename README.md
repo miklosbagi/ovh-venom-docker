@@ -27,4 +27,4 @@ Failing tests [will be verbose](https://github.com/miklosbagi/ovh-venom-docker/a
 
 # Keep in mind
 - All variables are to be passed to the venom container - can be a brain breaker if you haven't got used to this :)
-- Complex variables (e.g. a postgres DNS) can be trouble as they break docker-compose env var parsing - hence the .env file.
+- Complex variables (e.g. a postgres DSN) can be trouble as they break docker-compose env var parsing - hence the .env file.
