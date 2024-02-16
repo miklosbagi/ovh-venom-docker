@@ -17,4 +17,4 @@ testcases:
     dsn: "user={{.pg_user}} password={{.pg_pass}} dbname={{.pg_db}} host={{.pg_host}} port={{.pg_port}} sslmode=disable"
     info: "Adding a single entry to the db"
     commands:
-      - INSERT INTO venom_test (id, title) VALUES ('1', 'venom-1')
+      - INSERT INTO field_name_does_not_exist_and_this_test_must_fail (id, title) VALUES ('1', 'venom-1')
