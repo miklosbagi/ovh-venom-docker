@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  venom-0:
+    platform: linux/amd64
+    image: miklosbagi/ovh-venom:latest
+    env_file:
+      - .venom-env
+    volumes:
+      - ./tests/venom-0:/workdir/tests
+      - ./results/venom-0:/workdir/results
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  # can run in parallel with venom-0
+  venom-1:
+    platform: linux/amd64
+    image: miklosbagi/ovh-venom:latest
+    env_file:
+      - .venom-env
+    volumes:
+      - ./tests/venom-1:/workdir/tests
+      - ./results/venom-1:/workdir/results
+    depends_on:
+      venom-0:
+        # run only on successful exit
+        condition: service_completed_successfully
