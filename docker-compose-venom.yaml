@@ -12,7 +12,6 @@ services:
       postgres:
         condition: service_healthy
 
-  # can run in parallel with venom-0
   venom-1:
     platform: linux/amd64
     image: miklosbagi/ovh-venom:${VENOM_VER}
@@ -22,11 +21,10 @@ services:
       - ./tests/venom-1:/workdir/tests
       - ./results/venom-1:/workdir/results
     depends_on:
-      venom-0:
-        # run only on successful exit
-        condition: service_completed_successfully
+      # can run in parallel with venom-0
+      postgres:
+        condition: service_healthy
 
-  # can run in parallel with venom-0
   venom-2:
     platform: linux/amd64
     image: miklosbagi/ovh-venom:${VENOM_VER}
@@ -36,6 +34,6 @@ services:
       - ./tests/venom-2:/workdir/tests
       - ./results/venom-2:/workdir/results
     depends_on:
+      # after venom-1
       venom-1:
-        # only when venom-1 was succewssful
         condition: service_completed_successfully
