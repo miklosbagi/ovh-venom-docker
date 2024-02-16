@@ -1,0 +1,5 @@
+VENOM_VAR_pg_user=${PG_USER}
+VENOM_VAR_pg_pass=${PG_PASS}
+VENOM_VAR_pg_db=${PG_DB}
+VENOM_VAR_pg_host=postgres
+VENOM_VAR_pg_port=5432

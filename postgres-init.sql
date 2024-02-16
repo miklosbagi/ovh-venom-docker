@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS venom_test (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255)
+);
