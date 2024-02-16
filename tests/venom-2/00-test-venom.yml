@@ -1,0 +1,14 @@
+# only run when venom-1 is successful
+name: Venom 2
+testcases:
+- name: Venom 2.0 Add another entry to the db
+  steps:
+
+  - type: sql
+    driver: postgres
+    dsn: "user={{.pg_user}} password={{.pg_pass}} dbname={{.pg_db}} host={{.pg_host}} port={{.pg_port}} sslmode=disable"
+    info: "Checking if Venom 1.0 added entry successfully"
+    commands:
+      - "SELECT title FROM venom_test WHERE id = '1'"
+    assertions:
+      - result.queries.queries0.rows.rows0.title MustEqual "venom-1"
