@@ -1,0 +1,20 @@
+# breaking convention and calling .yaml intentionally
+# designed to run in parallel with venom-0
+name: Venom 1
+testcases:
+- name: Venom 1.0 Add another entry to the db
+  steps:
+
+  - type: sql
+    driver: postgres
+    dsn: "user={{.pg_user}} password={{.pg_pass}} dbname={{.pg_db}} host={{.pg_host}} port={{.pg_port}} sslmode=disable"
+    info: "Cleanup"
+    commands:
+      - DELETE FROM venom_test WHERE id = '1'
+
+  - type: sql
+    driver: postgres
+    dsn: "user={{.pg_user}} password={{.pg_pass}} dbname={{.pg_db}} host={{.pg_host}} port={{.pg_port}} sslmode=disable"
+    info: "Adding a single entry to the db"
+    commands:
+      - INSERT INTO venom_test (id, title) VALUES ('1', 'venom-1')
