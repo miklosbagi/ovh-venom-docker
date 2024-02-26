@@ -28,3 +28,14 @@ Failing tests [will be verbose](https://github.com/miklosbagi/ovh-venom-docker/a
 # Keep in mind
 - All variables are to be passed to the venom container - can be a brain breaker if you haven't got used to this :)
 - Complex variables (e.g. a postgres DSN) can be trouble as they break docker-compose env var parsing - hence the .env file.
+
+# Pros & Cons
+## Pros
+- Measurably faster than fetching / building venom bin on CI - likely cost savings too
+- Working with multiple versions of venom becomes an option:
+  - Leveraging new features while keeping sets of test suites run on an older version
+  - Testing upgrades is easy
+  
+## Cons
+- OVH does not release beta versions on Dockerhub, that needs to be solved on the side for now.
+- May need dev container to test complexity. 
