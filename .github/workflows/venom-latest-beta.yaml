@@ -22,4 +22,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build env and run tests
-      run: make VENOM_VER=latest env-up
+      run: make VENOM_VER=v1.2.0-beta.4 env-up
